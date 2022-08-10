@@ -34,12 +34,12 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-//    @GetMapping("/{id}")
-//    public UserDTO getUser(@Valid @PathVariable Long id) {
-//        return this.userService.getById(id)
-//                .map(user -> new UserDTO(user.getFirstName(), user.getLastName(), user.getEmail()))
-//                .orElseThrow();
-//    }
+   @GetMapping("/{id}")
+   public UserDTO getUser(@Valid @PathVariable Long id) {
+       return this.userService.getById(id)
+               .map(user -> new UserDTO(user.getFirstName(), user.getLastName(), user.getEmail(), user.getCpf()))
+               .orElseThrow();
+   }
 
 //    @GetMapping("/paginated")
 //    public Page<UserDTO> getUsersPaginated(Pageable pageable) {
